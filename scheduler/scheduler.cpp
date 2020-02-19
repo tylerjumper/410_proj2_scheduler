@@ -33,18 +33,26 @@ public:
 	//add a process, either a new one or one that
 	//had been running on the CPU and has been preempted
 	virtual void add(PCB p){
-
+		if(!p.isEmpty()){
+		ready_q->push(p);
+		}
+		//if p is empty
 	}
 
 	//get next process
 	virtual PCB getNext(){
-
+		return ready_q[0];
 	}
 
-	//returns true if there are no  jobs in the readyQ
+	//returns true if there are no jobs in the readyQ
 	//false otherwise
 	bool isEmpty(){
-		return false;
+		if(ready_q->empty()){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 	//if process has completed (used all its remaining_cpu_time) or
