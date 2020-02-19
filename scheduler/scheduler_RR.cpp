@@ -15,6 +15,7 @@ public:
 
 	//this is a preemptive scheduler,set the preemptive member variable to true
 	//when calling the base class
+	//I thinking fixing the scheduler base class will fix this
 	Scheduler_RR(std::queue<PCB> &queue,int time_slice =UNINITIALIZED):Scheduler(queue,true,time_slice){};
 	virtual ~Scheduler_RR(){};
 

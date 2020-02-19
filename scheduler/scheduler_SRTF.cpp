@@ -15,6 +15,7 @@ class Scheduler_SRTF: public Scheduler {
 public:
 	//this is a  preemptive scheduler, so set the preemptive member variable to true
 	//when calling the base class
+	//I thinking fixing the scheduler base class will fix this
 	Scheduler_SRTF(std::queue<PCB> &queue):Scheduler(queue,true,UNINITIALIZED){};
 	virtual ~Scheduler_SRTF(){};
 
