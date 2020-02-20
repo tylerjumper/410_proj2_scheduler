@@ -8,16 +8,7 @@
  *     pre-emptive
  */
 
-
 #include "../includes/scheduler_SRTF.h"
-
-//class Scheduler_SRTF: public Scheduler {
-//public:
-//	//this is a  preemptive scheduler, so set the preemptive member variable to true
-//	//when calling the base class
-//	//I thinking fixing the scheduler base class will fix this
-//	Scheduler_SRTF(std::queue<PCB> &queue):Scheduler(queue,true,UNINITIALIZED){};
-//	virtual ~Scheduler_SRTF(){};
 
 	//override base class behaviour if necessary, otherwise call it
 	bool  Scheduler_SRTF::time_to_switch_processes(int tick_count, PCB &p){
@@ -28,5 +19,4 @@
 	void Scheduler_SRTF::sort(){
 
 	}
-//};
 

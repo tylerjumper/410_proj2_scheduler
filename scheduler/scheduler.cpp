@@ -7,32 +7,8 @@
  *      Chooses which process to run next also determines when its time to switch processes
  */
 
-
 #include <queue>
-//#include "constants.h"
-//#include "PCB.h"
 #include "../includes/scheduler.h"
-
-//class Scheduler {
-//	protected:
-//	//holds jobs that are in memory and ready to run
-//	//for this program they are leaded into memory at arrival time
-//	//this is initialized from a reference, it cannot be null
-//	std::queue<PCB> *ready_q;
-//
-//	//preemptive algorithm or not
-//	bool preemptive;
-//
-//	//number of clock ticks a process can run before its switched out
-//	int     time_slice;
-//public:
-//	Scheduler::Scheduler(std::queue<PCB> &queue, bool preemptive, int time_slice) :
-//		ready_q(&queue), preemptive(preemptive), time_slice(time_slice){
-//
-//	}
-//	Scheduler::~Scheduler(void) {
-//
-//	}
 
 	//add a process, either a new one or one that
 	//had been running on the CPU and has been preempted
@@ -73,4 +49,3 @@
 
 	}
 
-//};
