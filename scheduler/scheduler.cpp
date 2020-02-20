@@ -15,8 +15,12 @@
 	void Scheduler::add(PCB p){
 		if(!p.isEmpty()){
 		ready_q->push(p);
+		//call sort
+		return;
 		}
 		//if p is empty
+		//call sort before returning
+
 	}
 
 	//get next process
@@ -35,15 +39,23 @@
 
 	//if process has completed (used all its remaining_cpu_time) or
 	//if we are using a preemptive scheduling algorithm and the
-	//timeslice is over then its time to switch processes
+	//time slice is over then its time to switch processes
 	//returns:
 	//true - switch processes
 	//false - do not switch
 	bool   Scheduler::time_to_switch_processes(int tick_count, PCB &p){
+		//process has completed (used all its remaining_cpu_time)
+		//or
+		//(using a preemptive scheduling algorithm AND time slice is over)
+		//meaning tick_count is less than or equal to time slice to
+		if(p.remaining_cpu_time == 0 ||(preemptive = true && tick_count <= time_slice)){
+			return true;
+		}
 		return false;
 	}
 
-	// sort  ready_q based on the scheduler algorithm used whenever add(PCB p) is called
+	// sort  ready_q based on the scheduler algorithm
+	//used whenever add(PCB p) is called
 	//pure virtual function
 	void Scheduler::sort(){
 
