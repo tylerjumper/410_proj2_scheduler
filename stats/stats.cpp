@@ -11,7 +11,6 @@
     //initalize things and find how to access the PCB values through vec
 	//also need to run calc stats but idk where
 	Stats::Stats(std::vector<PCB> &finished_vector){
-		//Stats::calcStats();
 		Stats::av_response_time = UNINITIALIZED;
 		Stats::av_turnaround_time = UNINITIALIZED;
 		Stats::av_wait_time = UNINITIALIZED;
