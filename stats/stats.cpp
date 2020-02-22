@@ -37,11 +37,13 @@
 	//response_time per process = start_time - arrival_time
 	//this funtion returns the average over all processes
 	float Stats::get_av_response_time(){
+		float tmp;
+		int i;
 		//loop through vec, start_time minus arrival_time
-		for(int i = 0 ; i < int(vec->size()) ; i++){
-			av_response_time += (vec->at(i).start_time - vec->at(i).arrival_time);
+		for(i = 0 ; i < int(vec->size()) ; i++){
+			tmp += (vec->at(i).start_time - vec->at(i).arrival_time);
 		}
-		return av_response_time;
+		return tmp/(i+1);
 	}
 
 	//after a process is placed in the ready_q, how long does
@@ -49,21 +51,26 @@
 	//turnaround time per process = finish_time - arrival_time
 	//this funtion returns the average over all processes
 	float Stats::get_av_turnaround_time(){
-
-		for(int i = 0 ; i < int(vec->size()) ; i++){
-			av_turnaround_time += (vec->at(i).start_time - vec->at(i).arrival_time);
+		float tmp;
+		int i;
+		for(i = 0 ; i < int(vec->size()) ; i++){
+			tmp += (vec->at(i).start_time - vec->at(i).arrival_time);
 		}
-		return av_turnaround_time;
+		return tmp/(i+1);
 	}
 
 	//after a process is placed in the ready_q, how much time does it
 	//spend waiting for processor time?
-	//wait time per process = finish_time - arrival_time-required_CPU_time
+	//wait time per process = finish_time - arrival_time - required_CPU_time
 	//this funtion returns the average over all processes
 	float Stats::get_av_wait_time(){
+		float tmp;
+		int i;
 		//loop through vec, finish_time minus arrival_time minus required_CPU_time
-		for(int i = 0 ; i < int(vec->size()) ; i++){
-			av_wait_time += (vec->at(i).finish_time - vec->at(i).arrival_time - vec->at(i).required_cpu_time);
+		for(i = 0 ; i < int(vec->size()) ; i++){
+			std::cout<<"first :"<<av_wait_time<<std::endl;
+			tmp += (vec->at(i).finish_time - vec->at(i).arrival_time - vec->at(i).required_cpu_time);
+			std::cout<<"second :"<< av_wait_time<<std::endl;
 		}
-		return av_wait_time;
+		return tmp/(i+1);
 	}

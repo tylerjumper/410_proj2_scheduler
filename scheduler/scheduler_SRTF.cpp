@@ -18,6 +18,12 @@
 
 	//SRTF-preemptive - sort ready_q by remaining_cpu_time whenever add(PCB p) or time_to_switch_processes is called
 	void Scheduler_SRTF::sort(){
+		//create vector
+
+		//loop through and put queue into a vector
+		for(int i = 0 ; i < int(ready_q->size()) ; i++){
+
+		}
 
 	}
 

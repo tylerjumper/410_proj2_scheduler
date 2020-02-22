@@ -15,7 +15,7 @@
 	void Scheduler::add(PCB p){
 		if(!p.isEmpty()){
 		ready_q->push(p);
-		//call sort
+
 		return;
 		}
 		//if p is empty
@@ -47,16 +47,8 @@
 		//or
 		//(using a preemptive scheduling algorithm AND time slice is over)
 		//meaning tick_count is less than or equal to time slice to
-		if(p.remaining_cpu_time <= 0 ||(preemptive = true && tick_count > time_slice)){
+		if(p.remaining_cpu_time <= 0 ||(preemptive = true && tick_count >= time_slice)){
 			return true;
 		}
 		return false;
 	}
-
-	// sort  ready_q based on the scheduler algorithm
-	//used whenever add(PCB p) is called
-	//pure virtual function
-	void Scheduler::sort(){
-
-	}
-
